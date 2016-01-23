@@ -1,0 +1,22 @@
+<article class="bottom-space">
+	<%= article_cover @article.cover.url %>
+	<div class="row center-xs">
+		<div class="col-xs-12 ligth-border col-md-7">
+			<h1 class="be-big blue"><%= @article.title %></h1>
+			<p class="text-right be-small">
+				<%= link_to "Atrás", articles_path, class:"underline" %>
+				<span class="red"><%= @article.visits_count %> visita(s)</span>
+				-
+				<% unless @article.user.nil? %>
+					Escrito por <%= @article.user.email %>
+				<% end -%>
+			</p>
+			<div class="text-justify">
+				<%= Sanitize.fragment(@article.body, Sanitize::Config::RELAXED).html_safe %>
+			</div>
+			<div class="top-space">
+				<%= render "articles/comments" %>
+			</div>
+		</div>
+	</div>
+</article>

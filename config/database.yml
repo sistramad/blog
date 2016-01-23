@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  username: postgres
+  password: Alpha
+  host: localhost
+  port: 5432
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: blog_development
+
+test:
+  <<: *default
+  database: blog_test

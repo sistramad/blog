@@ -1,0 +1,5 @@
+<% unless current_user.nil? %>
+	<h1>¡¡¡ Bienvenido <%= current_user.email%> !!!</h1>
+<%else%>
+	<h1>¡¡¡ Bienvenidos a nuestro blog !!!</h1>
+<%end%>
